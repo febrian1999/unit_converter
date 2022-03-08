@@ -17,3 +17,35 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class Example extends StatefulWidget {
+  Example({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _ExampleState createState() => _ExampleState();
+}
+
+class _ExampleState extends State<Example> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                child: Text("Example"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

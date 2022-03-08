@@ -9,17 +9,33 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+lengthButtonOnPressed() {}
+
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
       body: Container(
         padding: EdgeInsets.all(16),
         child: SafeArea(
-          child: Container(),
+          child: Column(
+            children: [
+              Container(
+                child: Text("Unit Converter"),
+              ),
+              Container(
+                child: ElevatedButton(
+                  onPressed: () {
+                    lengthButtonOnPressed();
+                  },
+                  child: Text("Length"),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
