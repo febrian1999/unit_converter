@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unit_converter/drawer.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key, required this.title}) : super(key: key);
@@ -18,20 +19,40 @@ class _HomeState extends State<Home> {
       // appBar: AppBar(
       //   title: Text(widget.title),
       // ),
+      drawer: appDrawer(),
       body: Container(
         padding: EdgeInsets.all(16),
+        width: double.infinity,
         child: SafeArea(
           child: Column(
             children: [
               Container(
-                child: Text("Unit Converter"),
+                padding: EdgeInsets.all(32),
+                child: Text(
+                  widget.title,
+                  style: TextStyle(
+                    fontSize: 28,
+                  ),
+                ),
               ),
               Container(
+                padding: EdgeInsets.fromLTRB(32, 0, 32, 0),
+                width: double.infinity,
+                height: 48,
                 child: ElevatedButton(
                   onPressed: () {
                     lengthButtonOnPressed();
                   },
-                  child: Text("Length"),
+                  child: Container(
+                    width: double.infinity,
+                    child: Text(
+                      "Length",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
                 ),
               ),
             ],
