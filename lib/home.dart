@@ -19,7 +19,15 @@ class _HomeState extends State<Home> {
       // appBar: AppBar(
       //   title: Text(widget.title),
       // ),
-      drawer: appDrawer(),
+      drawer: Container(
+        child: Column(
+          children: [
+            Container(
+              child: Text("Text"),
+            ),
+          ],
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.all(16),
         width: double.infinity,
@@ -45,13 +53,32 @@ class _HomeState extends State<Home> {
                   },
                   child: Container(
                     width: double.infinity,
-                    child: Text(
-                      "Length",
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                      textAlign: TextAlign.left,
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.straighten,
+                            // size: 24,
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          child: Text(
+                            "Length",
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
+                    // child: Text(
+                    //   "Length",
+                    //   style: TextStyle(
+                    //     fontSize: 18,
+                    //   ),
+                    //   textAlign: TextAlign.left,
+                    // ),
                   ),
                 ),
               ),
