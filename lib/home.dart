@@ -16,16 +16,26 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      // ),
+      appBar: AppBar(
+          // title: Text(widget.title),
+          // backgroundColor: Colors.transparent,
+          ),
       drawer: Container(
-        child: Column(
-          children: [
-            Container(
-              child: Text("Text"),
-            ),
-          ],
+        color: Colors.blue,
+        padding: EdgeInsets.all(16),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                child: Text(
+                  "Text",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: Container(
@@ -58,7 +68,6 @@ class _HomeState extends State<Home> {
                         Container(
                           child: Icon(
                             Icons.straighten,
-                            // size: 24,
                           ),
                         ),
                         Container(
@@ -72,15 +81,45 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    // child: Text(
-                    //   "Length",
-                    //   style: TextStyle(
-                    //     fontSize: 18,
-                    //   ),
-                    //   textAlign: TextAlign.left,
-                    // ),
                   ),
                 ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(32, 0, 32, 0),
+                width: double.infinity,
+                height: 48,
+                child: ElevatedButton(
+                  onPressed: () {
+                    lengthButtonOnPressed();
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.straighten,
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          child: Text(
+                            "Area",
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8),
               ),
             ],
           ),
