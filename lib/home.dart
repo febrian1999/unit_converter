@@ -18,8 +18,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
           // title: Text(widget.title),
-          // backgroundColor: Colors.transparent,
+          // backgroundColor: Colors.white,
           ),
+      // drawer: appDrawer(),
       drawer: Container(
         color: Colors.blue,
         padding: EdgeInsets.all(16),

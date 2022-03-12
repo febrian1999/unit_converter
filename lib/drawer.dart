@@ -2,12 +2,21 @@ import 'package:flutter/material.dart';
 
 appDrawer() {
   Container(
-    child: Column(
-      children: [
-        Container(
-          child: Text("Text"),
-        ),
-      ],
+    color: Colors.blue,
+    padding: EdgeInsets.all(16),
+    child: SafeArea(
+      child: Column(
+        children: [
+          Container(
+            child: Text(
+              "Text",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }
