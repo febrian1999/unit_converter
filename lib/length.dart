@@ -16,18 +16,23 @@ class _LengthState extends State<Length> {
       body: Container(
         padding: EdgeInsets.all(16),
         child: SafeArea(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.all(32),
-                child: Text(
-                  "Length",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black87,
-                  ),
+          child: CustomScrollView(
+            slivers: [
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Container(
+                      child: Text(widget.title),
+                    ),
+                    Form(
+                      child: Column(
+                        children: [],
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              SliverFillRemaining(),
             ],
           ),
         ),
