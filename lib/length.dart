@@ -10,6 +10,8 @@ class Length extends StatefulWidget {
 }
 
 class _LengthState extends State<Length> {
+  final formGlobalKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +24,47 @@ class _LengthState extends State<Length> {
                 delegate: SliverChildListDelegate(
                   [
                     Container(
-                      child: Text(widget.title),
+                      width: double.infinity,
+                      padding: EdgeInsets.all(32),
+                      child: Text(
+                        widget.title,
+                        style: TextStyle(
+                          fontSize: 28,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     Form(
+                      key: formGlobalKey,
                       child: Column(
-                        children: [],
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(16),
+                            child: TextFormField(),
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(16),
+                            child: ExpansionPanelList(
+                              expansionCallback:
+                                  (int index, bool isExpanded) {},
+                              children: [
+                                ExpansionPanel(
+                                  headerBuilder:
+                                      (BuildContext context, bool isExpanded) {
+                                    return ListTile(
+                                        // title: Text('Item 1'),
+                                        );
+                                  },
+                                  body: ListTile(
+                                    title: Text('Item 1 child'),
+                                    subtitle: Text('Details goes here'),
+                                  ),
+                                  isExpanded: true,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

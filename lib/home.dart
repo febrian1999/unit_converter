@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unit_converter/length.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key, required this.title}) : super(key: key);
@@ -9,7 +10,18 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-lengthButtonOnPressed() {}
+lengthButtonOnPressed(context) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (BuildContext context) => Length(
+        title: 'Length',
+      ),
+    ),
+  );
+}
+
+areaButtonOnPressed(context) {}
 
 class _HomeState extends State<Home> {
   @override
@@ -59,7 +71,7 @@ class _HomeState extends State<Home> {
                 height: 48,
                 child: ElevatedButton(
                   onPressed: () {
-                    lengthButtonOnPressed();
+                    lengthButtonOnPressed(context);
                   },
                   child: Container(
                     width: double.infinity,
@@ -93,7 +105,7 @@ class _HomeState extends State<Home> {
                 height: 48,
                 child: ElevatedButton(
                   onPressed: () {
-                    lengthButtonOnPressed();
+                    areaButtonOnPressed(context);
                   },
                   child: Container(
                     width: double.infinity,
