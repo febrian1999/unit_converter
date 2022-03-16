@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unit_converter/length.dart';
+import 'package:unit_converter/library.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key, required this.title}) : super(key: key);
@@ -11,17 +11,12 @@ class Home extends StatefulWidget {
 }
 
 lengthButtonOnPressed(context) {
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(
-      builder: (BuildContext context) => Length(
-        title: 'Length',
-      ),
-    ),
-  );
+  goToLengthPage(context);
 }
 
-areaButtonOnPressed(context) {}
+areaButtonOnPressed(context) {
+  goToAreaPage(context);
+}
 
 class _HomeState extends State<Home> {
   @override
