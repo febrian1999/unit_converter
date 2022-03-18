@@ -64,6 +64,10 @@ class _LengthState extends State<Length> {
                               ],
                             ),
                           ),
+                          Container(
+                            padding: EdgeInsets.all(16),
+                            child: TextFormField(),
+                          ),
                         ],
                       ),
                     ),
