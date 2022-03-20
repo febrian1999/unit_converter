@@ -1,45 +1,5 @@
 import 'package:flutter/material.dart';
 
-class ListItem {
-  int id;
-  String headerName;
-  String description;
-  bool isExpanded;
-
-  ListItem({
-    required this.id,
-    required this.headerName,
-    required this.description,
-    this.isExpanded = false,
-  });
-}
-
-List<ListItem> generateItems(int numberOfItems) {
-  return List<ListItem>.generate(numberOfItems, (int index) {
-    return ListItem(
-      id: index,
-      headerName: 'Expansion Panel $index',
-      description: 'This is body of item number $index',
-    );
-  });
-}
-
-List<ExpansionPanel> _getExpansionPanels(List<ListItem> _items) {
-  return _items.map<ExpansionPanel>((ListItem item) {
-    return ExpansionPanel(
-      headerBuilder: (BuildContext context, bool isExpanded) {
-        return ListTile(
-          title: Text(item.headerName),
-        );
-      },
-      body: ListTile(
-        title: Text(item.description),
-      ),
-      isExpanded: item.isExpanded,
-    );
-  }).toList();
-}
-
 class Length extends StatefulWidget {
   Length({Key? key, required this.title}) : super(key: key);
 
@@ -50,8 +10,13 @@ class Length extends StatefulWidget {
 }
 
 class _LengthState extends State<Length> {
-  List<ListItem> _items = generateItems(15);
   final formGlobalKey = GlobalKey<FormState>();
+
+  late String _valLength1;
+  List _listLength1 = [
+    "Km",
+    "M",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -84,15 +49,23 @@ class _LengthState extends State<Length> {
                             child: TextFormField(),
                           ),
                           Container(
-                              padding: EdgeInsets.all(16),
-                              child: ExpansionPanelList(
-                                animationDuration: Duration(milliseconds: 1000),
-                                children: _getExpansionPanels(_items),
-                                expansionCallback: (panelIndex, isExpanded) {
-                                  _items[panelIndex].isExpanded = !isExpanded;
-                                  setState(() {});
-                                },
-                              )),
+                            padding: EdgeInsets.all(16),
+                            child: DropdownButton(
+                              hint: Text("Select Your Friends"),
+                              value: _valLength1,
+                              items: _listLength1.map((value) {
+                                return DropdownMenuItem(
+                                  child: Text(value),
+                                  value: value,
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  // _valLength1 = value;
+                                });
+                              },
+                            ),
+                          ),
                           Container(
                             padding: EdgeInsets.all(16),
                             child: TextFormField(),
