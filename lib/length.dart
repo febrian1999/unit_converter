@@ -12,7 +12,7 @@ class Length extends StatefulWidget {
 class _LengthState extends State<Length> {
   final formGlobalKey = GlobalKey<FormState>();
 
-  late String _valLength1;
+  String _valLength1 = "Km";
   List _listLength1 = [
     "Km",
     "M",
@@ -51,17 +51,17 @@ class _LengthState extends State<Length> {
                           Container(
                             padding: EdgeInsets.all(16),
                             child: DropdownButton(
-                              hint: Text("Select Your Friends"),
+                              // hint: Text(""),
                               value: _valLength1,
-                              items: _listLength1.map((value) {
+                              items: _listLength1.map((items) {
                                 return DropdownMenuItem(
-                                  child: Text(value),
-                                  value: value,
+                                  child: Text(items),
+                                  value: items,
                                 );
                               }).toList(),
-                              onChanged: (value) {
+                              onChanged: (newValue) {
                                 setState(() {
-                                  // _valLength1 = value;
+                                  _valLength1 = newValue.toString();
                                 });
                               },
                             ),
