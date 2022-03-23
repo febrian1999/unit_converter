@@ -14,8 +14,12 @@ class _LengthState extends State<Length> {
 
   String _valLength1 = "Km";
   List _listLength1 = [
-    "Km",
-    "M",
+    "km",
+    "m",
+    "cm",
+    "cm",
+    "mm",
+    "mile",
   ];
 
   @override
