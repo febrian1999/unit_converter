@@ -12,8 +12,9 @@ class Length extends StatefulWidget {
 class _LengthState extends State<Length> {
   final formGlobalKey = GlobalKey<FormState>();
 
-  String _valLength1 = "Km";
-  List _listLength1 = [
+  String _valLengthA = "km";
+  String _valLengthB = "m";
+  List _listLength = [
     "km",
     "m",
     "cm",
@@ -56,8 +57,8 @@ class _LengthState extends State<Length> {
                             padding: EdgeInsets.all(16),
                             child: DropdownButton(
                               // hint: Text(""),
-                              value: _valLength1,
-                              items: _listLength1.map((items) {
+                              value: _valLengthA,
+                              items: _listLength.map((items) {
                                 return DropdownMenuItem(
                                   child: Text(items),
                                   value: items,
@@ -65,7 +66,7 @@ class _LengthState extends State<Length> {
                               }).toList(),
                               onChanged: (newValue) {
                                 setState(() {
-                                  _valLength1 = newValue.toString();
+                                  _valLengthA = newValue.toString();
                                 });
                               },
                             ),
@@ -73,6 +74,24 @@ class _LengthState extends State<Length> {
                           Container(
                             padding: EdgeInsets.all(16),
                             child: TextFormField(),
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(16),
+                            child: DropdownButton(
+                              // hint: Text(""),
+                              value: _valLengthB,
+                              items: _listLength.map((items) {
+                                return DropdownMenuItem(
+                                  child: Text(items),
+                                  value: items,
+                                );
+                              }).toList(),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _valLengthB = newValue.toString();
+                                });
+                              },
+                            ),
                           ),
                         ],
                       ),
