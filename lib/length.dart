@@ -18,10 +18,70 @@ class _LengthState extends State<Length> {
     "km",
     "m",
     "cm",
-    "cm",
     "mm",
     "mile",
   ];
+
+  lengthAOnChanged() {
+    switch (_valLengthA) {
+      case "km":
+        switch (_valLengthB) {
+          case "m":
+            {
+              // *1000
+            }
+            break;
+          case "cm":
+            {
+              // *100000
+            }
+            break;
+          case "mm":
+            {
+              //
+            }
+            break;
+          case "mile":
+            {
+              //
+            }
+            break;
+          default:
+        }
+        break;
+      case "m":
+        switch (_valLengthB) {
+          case "km":
+            {
+              //
+            }
+            break;
+          case "cm":
+            {
+              //
+            }
+            break;
+          case "mm":
+            {
+              //
+            }
+            break;
+          case "mile":
+            {
+              //
+            }
+            break;
+          default:
+        }
+        break;
+      case "cm":
+      case "mm":
+      case "mile":
+      default:
+    }
+  }
+
+  lengthBonChanged() {}
 
   @override
   Widget build(BuildContext context) {
