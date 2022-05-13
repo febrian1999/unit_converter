@@ -111,7 +111,9 @@ class _LengthState extends State<Length> {
                         children: [
                           Container(
                             padding: EdgeInsets.all(16),
-                            child: TextFormField(),
+                            child: TextFormField(
+                              keyboardType: TextInputType.number,
+                            ),
                           ),
                           Container(
                             padding: EdgeInsets.all(16),
@@ -133,7 +135,9 @@ class _LengthState extends State<Length> {
                           ),
                           Container(
                             padding: EdgeInsets.all(16),
-                            child: TextFormField(),
+                            child: TextFormField(
+                              keyboardType: TextInputType.number,
+                            ),
                           ),
                           Container(
                             padding: EdgeInsets.all(16),
