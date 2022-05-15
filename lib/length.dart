@@ -12,8 +12,15 @@ class Length extends StatefulWidget {
 class _LengthState extends State<Length> {
   final formGlobalKey = GlobalKey<FormState>();
 
+  TextEditingController controllerLengthA = TextEditingController();
+  TextEditingController controllerLengthB = TextEditingController();
+
   String _valLengthA = "km";
   String _valLengthB = "m";
+
+  int lengthA = 0;
+  int lengthB = 0;
+
   List _listLength = [
     "km",
     "m",
@@ -23,61 +30,67 @@ class _LengthState extends State<Length> {
   ];
 
   lengthAOnChanged() {
-    switch (_valLengthA) {
-      case "km":
-        switch (_valLengthB) {
-          case "m":
-            {
-              // *1000
-            }
-            break;
-          case "cm":
-            {
-              // *100000
-            }
-            break;
-          case "mm":
-            {
-              //
-            }
-            break;
-          case "mile":
-            {
-              //
-            }
-            break;
-          default:
-        }
-        break;
-      case "m":
-        switch (_valLengthB) {
-          case "km":
-            {
-              //
-            }
-            break;
-          case "cm":
-            {
-              //
-            }
-            break;
-          case "mm":
-            {
-              //
-            }
-            break;
-          case "mile":
-            {
-              //
-            }
-            break;
-          default:
-        }
-        break;
-      case "cm":
-      case "mm":
-      case "mile":
-      default:
+    if (controllerLengthA.text.isNotEmpty) {
+      lengthA = int.parse(controllerLengthA.text);
+
+      switch (_valLengthA) {
+        case "km":
+          switch (_valLengthB) {
+            case "m":
+              {
+                controllerLengthB.text = (lengthA * 1000).toString();
+              }
+              break;
+            case "cm":
+              {
+                // *100000
+              }
+              break;
+            case "mm":
+              {
+                //
+              }
+              break;
+            case "mile":
+              {
+                //
+              }
+              break;
+            default:
+          }
+          break;
+        case "m":
+          switch (_valLengthB) {
+            case "km":
+              {
+                //
+              }
+              break;
+            case "cm":
+              {
+                //
+              }
+              break;
+            case "mm":
+              {
+                //
+              }
+              break;
+            case "mile":
+              {
+                //
+              }
+              break;
+            default:
+          }
+          break;
+        case "cm":
+        case "mm":
+        case "mile":
+        default:
+      }
+    } else {
+      controllerLengthB.text = "0";
     }
   }
 
@@ -112,10 +125,36 @@ class _LengthState extends State<Length> {
                           Container(
                             padding: EdgeInsets.all(16),
                             child: TextFormField(
+                              controller: controllerLengthA,
+                              decoration: InputDecoration(
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(12, 4, 12, 4),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    color: Colors.black12,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    color: Colors.redAccent,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    color: Colors.black12,
+                                  ),
+                                ),
+                              ),
                               keyboardType: TextInputType.number,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
+                              onChanged: (text) {
+                                lengthAOnChanged();
+                              },
                             ),
                           ),
                           Container(
@@ -139,6 +178,29 @@ class _LengthState extends State<Length> {
                           Container(
                             padding: EdgeInsets.all(16),
                             child: TextFormField(
+                              controller: controllerLengthB,
+                              decoration: InputDecoration(
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(12, 4, 12, 4),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    color: Colors.black12,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    color: Colors.redAccent,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    color: Colors.black12,
+                                  ),
+                                ),
+                              ),
                               keyboardType: TextInputType.number,
                               style: TextStyle(
                                 fontSize: 18,
