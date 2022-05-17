@@ -68,27 +68,27 @@ class _LengthState extends State<Length> {
           switch (_valLengthB) {
             case "km":
               {
-                //
+                controllerLengthB.text = (lengthA * 0.001).toString();
               }
               break;
             case "m":
               {
-                //
+                controllerLengthB.text = lengthA.toString();
               }
               break;
             case "cm":
               {
-                //
+                controllerLengthB.text = (lengthA * 100).toString();
               }
               break;
             case "mm":
               {
-                //
+                controllerLengthB.text = (lengthA * 1000).toString();
               }
               break;
             case "mile":
               {
-                //
+                controllerLengthB.text = (lengthA * 0.000621371).toString();
               }
               break;
             default:
